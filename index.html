@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111021">
+  <meta name="description" content="A little reminder that life is beautiful.">
+  <title>Hello, World — Life Is Beautiful</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap');
+
+    :root {
+      color-scheme: dark;
+      --ink: #f8f4ff;
+      --muted: #c5bdd8;
+      --lavender: #c8a8ff;
+      --pink: #ff9dbd;
+      --gold: #ffd98f;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 18% 15%, rgba(117, 77, 177, .24), transparent 38%),
+        radial-gradient(ellipse at 88% 82%, rgba(255, 129, 159, .17), transparent 34%),
+        linear-gradient(145deg, #111021 0%, #19142b 52%, #22172f 100%);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .scene {
+      position: relative;
+      isolation: isolate;
+      width: min(100% - 36px, 900px);
+      padding: clamp(42px, 8vw, 88px) clamp(24px, 8vw, 88px);
+      text-align: center;
+    }
+
+    .scene::before, .scene::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .scene::before { inset: 0 7%; transform: rotate(-7deg); }
+    .scene::after { inset: 5% 0; transform: rotate(7deg); border-color: rgba(255,255,255,.07); }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 27px;
+      color: #d9c8fb;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before, .eyebrow::after {
+      content: '';
+      width: 23px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--lavender));
+    }
+    .eyebrow::after { transform: rotate(180deg); }
+
+    h1 {
+      margin: 0;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(58px, 12vw, 112px);
+      font-weight: 600;
+      letter-spacing: -.065em;
+      line-height: .98;
+      background: linear-gradient(115deg, #fff 12%, #e8d7ff 49%, #ffc2cf 88%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      filter: drop-shadow(0 10px 36px rgba(201, 155, 255, .13));
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 30px 0 24px;
+      color: var(--gold);
+      font-size: 15px;
+    }
+    .divider span { width: 48px; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,217,143,.65)); }
+    .divider span:last-child { transform: rotate(180deg); }
+
+    .message {
+      margin: 0;
+      color: #f3e9f2;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 5.5vw, 48px);
+      font-style: italic;
+      line-height: 1.2;
+    }
+    .message em {
+      color: #ffb2c7;
+      font-weight: 600;
+      text-shadow: 0 0 30px rgba(255, 157, 189, .26);
+    }
+    .note {
+      margin: 25px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: .025em;
+    }
+
+    .sparkle {
+      position: absolute;
+      color: #ffe6ad;
+      opacity: .8;
+      animation: twinkle 3s ease-in-out infinite;
+    }
+    .s1 { top: 12%; left: 12%; font-size: 18px; }
+    .s2 { top: 22%; right: 11%; color: #e5c9ff; font-size: 13px; animation-delay: .8s; }
+    .s3 { bottom: 14%; left: 17%; color: #ffb8c9; font-size: 13px; animation-delay: 1.4s; }
+    .s4 { right: 16%; bottom: 12%; font-size: 20px; animation-delay: .4s; }
+    @keyframes twinkle { 0%, 100% { transform: scale(.8) rotate(0); opacity: .45; } 50% { transform: scale(1.25) rotate(18deg); opacity: 1; } }
+
+    .footer {
+      position: fixed;
+      bottom: 22px;
+      left: 0;
+      width: 100%;
+      color: rgba(221, 211, 237, .57);
+      text-align: center;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 520px) {
+      .scene { padding: 62px 20px; }
+      .scene::before { inset-inline: 0; }
+      .scene::after { inset-block: 0; }
+      .eyebrow { font-size: 9px; letter-spacing: .18em; }
+      .note { max-width: 250px; margin-inline: auto; line-height: 1.7; }
+      .s1 { left: 2%; top: 5%; }
+      .s2 { right: 2%; top: 13%; }
+      .s3 { left: 5%; bottom: 8%; }
+      .s4 { right: 4%; bottom: 7%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="scene">
+    <span class="sparkle s1" aria-hidden="true">✦</span>
+    <span class="sparkle s2" aria-hidden="true">✧</span>
+    <span class="sparkle s3" aria-hidden="true">✧</span>
+    <span class="sparkle s4" aria-hidden="true">✦</span>
+    <p class="eyebrow">A little note for today</p>
+    <h1>Hello,<br>World.</h1>
+    <div class="divider" aria-hidden="true"><span></span>✷<span></span></div>
+    <p class="message">Life is <em>beautiful.</em></p>
+    <p class="note">Take a breath. Look around. There is wonder here.</p>
+  </main>
+  <footer class="footer">Made for the bright little moments</footer>
+</body>
+</html>
