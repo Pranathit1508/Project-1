@@ -19,6 +19,31 @@
     }
 
     * { box-sizing: border-box; }
+    .site-nav {
+      position: fixed;
+      z-index: 5;
+      top: 22px;
+      left: 50%;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+      background: rgba(20, 16, 36, .62);
+      backdrop-filter: blur(14px);
+      transform: translateX(-50%);
+    }
+    .site-nav a {
+      padding: 9px 16px;
+      border-radius: 999px;
+      color: #d8d0e7;
+      font-size: 12px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color .2s ease, background .2s ease;
+    }
+    .site-nav a:hover, .site-nav a[aria-current="page"] { color: #fff; background: rgba(200,168,255,.2); }
     body {
       margin: 0;
       min-height: 100svh;
@@ -142,6 +167,7 @@
     }
 
     @media (max-width: 520px) {
+      .site-nav { top: 14px; }
       .scene { padding: 62px 20px; }
       .scene::before { inset-inline: 0; }
       .scene::after { inset-block: 0; }
@@ -158,6 +184,11 @@
   </style>
 </head>
 <body>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
   <main class="scene">
     <span class="sparkle s1" aria-hidden="true">✦</span>
     <span class="sparkle s2" aria-hidden="true">✧</span>

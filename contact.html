@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111021">
+  <meta name="description" content="Get in touch and share a little brightness.">
+  <title>Contact — Hello, World</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap');
+    :root { color-scheme:dark; --ink:#f8f4ff; --muted:#c5bdd8; --lavender:#c8a8ff; --pink:#ff9dbd; --gold:#ffd98f; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100svh; display:grid; place-items:center; padding:96px 20px 74px; color:var(--ink); background:radial-gradient(ellipse at 18% 15%, rgba(133,101,14,.781), transparent 38%),radial-gradient(ellipse at 88% 82%, rgba(238,7,61,.89), transparent 34%),linear-gradient(145deg,#111021 0%,#020f13 52%,#22172f 100%); font-family:'DM Sans',sans-serif; }
+    .site-nav { position:fixed; z-index:5; top:22px; left:50%; display:flex; gap:6px; padding:6px; border:1px solid rgba(255,255,255,.12); border-radius:999px; background:rgba(20,16,36,.62); backdrop-filter:blur(14px); transform:translateX(-50%); }
+    .site-nav a { padding:9px 16px; border-radius:999px; color:#d8d0e7; font-size:12px; font-weight:600; text-decoration:none; transition:color .2s,background .2s; }
+    .site-nav a:hover,.site-nav a[aria-current="page"] { color:#fff; background:rgba(200,168,255,.2); }
+    main { width:min(100%,680px); text-align:center; }
+    .eyebrow { margin:0 0 20px; color:#d9c8fb; font-size:11px; font-weight:700; letter-spacing:.24em; text-transform:uppercase; }
+    h1 { margin:0; font:600 clamp(52px,10vw,88px)/1 'Playfair Display',Georgia,serif; letter-spacing:-.055em; background:linear-gradient(115deg,#fff 12%,#e8d7ff 49%,#ffc2cf 88%); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .intro { margin:18px auto 30px; max-width:440px; color:var(--muted); font-size:15px; line-height:1.7; }
+    form { display:grid; gap:17px; padding:clamp(24px,5vw,38px); border:1px solid rgba(255,255,255,.12); border-radius:26px; background:rgba(255,255,255,.055); box-shadow:0 24px 80px rgba(0,0,0,.18); text-align:left; backdrop-filter:blur(10px); }
+    .field { display:grid; gap:8px; }
+    label { color:#e9def8; font-size:12px; font-weight:600; letter-spacing:.04em; }
+    input,textarea { width:100%; border:1px solid rgba(255,255,255,.15); border-radius:12px; outline:none; padding:13px 15px; color:#fff; background:rgba(12,10,24,.48); font:14px 'DM Sans',sans-serif; transition:border-color .2s,box-shadow .2s; }
+    input::placeholder,textarea::placeholder { color:rgba(220,211,235,.44); }
+    input:focus,textarea:focus { border-color:rgba(200,168,255,.7); box-shadow:0 0 0 3px rgba(200,168,255,.12); }
+    textarea { min-height:132px; resize:vertical; }
+    button { justify-self:center; margin-top:3px; border:0; border-radius:999px; padding:13px 25px; color:#24172d; background:linear-gradient(110deg,#e5cfff,#ffb6c9); font:700 13px 'DM Sans',sans-serif; cursor:pointer; box-shadow:0 8px 28px rgba(255,157,189,.2); transition:transform .2s,box-shadow .2s; }
+    button:hover { transform:translateY(-2px); box-shadow:0 12px 32px rgba(255,157,189,.3); }
+    .form-note { margin:0; color:rgba(221,211,237,.62); font-size:11px; line-height:1.6; text-align:center; }
+    footer { position:fixed; bottom:22px; color:rgba(221,211,237,.57); font-size:10px; letter-spacing:.2em; text-transform:uppercase; text-align:center; }
+    @media(max-width:520px) { .site-nav { top:14px; } .site-nav a { padding:9px 14px; } }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="index.html">Home</a><a href="about.html">About</a><a href="contact.html" aria-current="page">Contact</a>
+  </nav>
+  <main>
+    <p class="eyebrow">We’d love to hear from you</p>
+    <h1>Say hello.</h1>
+    <p class="intro">Have a thought, a kind word, or a bright idea to share? Leave a note below.</p>
+    <form action="#" method="get" onsubmit="event.preventDefault(); document.getElementById('form-status').textContent='Thanks for stopping by! To receive messages, connect this form to your preferred inbox.';">
+      <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" placeholder="What should we call you?" autocomplete="name" required></div>
+      <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required></div>
+      <div class="field"><label for="message">Your message</label><textarea id="message" name="message" placeholder="Write a little something…" required></textarea></div>
+      <button type="submit">Send a little note <span aria-hidden="true">✦</span></button>
+      <p class="form-note" id="form-status" aria-live="polite">This form is a visual template; connect it to an inbox to receive messages.</p>
+    </form>
+  </main>
+  <footer>Made for the bright little moments</footer>
+</body>
+</html>
